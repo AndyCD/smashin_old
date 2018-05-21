@@ -1,29 +1,20 @@
-<div class="container pull-center" id="signin">
+<div class="container-fluid">
 
   <h2>Sign In</h2>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-inputs">
+      <%= f.label :email, required: true %>
+      <%= f.input :email, label: false, autofocus: true, :error => false %><br />
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.label :password, required: true %>
+      <%= f.input :password, label: false, :error => false %><br />
+
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %><br />
     </div>
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    <% if devise_mapping.rememberable? -%>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end -%>
-
-    <div class="actions">
-      <!--<%= f.submit "Sign in" %>-->
-      <%= f.button 'Sign in', class: "btn btn-md btn-info" %>
+    <div class="form-actions">
+      <%= f.button :submit, "Log in" %>
     </div>
   <% end %>
 
