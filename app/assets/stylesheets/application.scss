@@ -22,3 +22,45 @@
 .notice {
   color: green;
 }
+
+/* general - begin */
+ .container {
+   width: auto;
+ }
+
+ html {
+   height: 100%;
+ }
+
+ body {
+   height: 100%;
+ }
+
+ #wrap {
+   min-height: 100%;
+ }
+
+ #main {
+   overflow:auto;
+   padding-bottom: 20px; // this needs to be bigger than footer height
+ }
+
+ #push{
+   padding-top:0px;
+ }
+
+ .footer {
+   position: relative;
+   margin-top: -20px; //negative value of footer height
+   height: 20px;
+   margin-left: 5px;
+   margin-right: 5px;
+   clear:both;
+   padding: 0px;
+   border-top: 1px solid lightgrey;
+   color: inherit;
+   text-align: left;
+   font-size: 0.75em;
+   background-color: #F5F5F5;
+ }
+/* general - end */
