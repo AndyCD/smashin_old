@@ -1,13 +1,10 @@
 class User < ApplicationRecord
-
   enum role: [:admin, :teacher, :student, :guardian]
     after_initialize :set_default_role, :if => :new_record?
 
     def set_default_role
       self.role ||= :student
     end
-
-validates :name, presence: true
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
