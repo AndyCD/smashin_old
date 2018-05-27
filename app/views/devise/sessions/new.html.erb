@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-  <h2>Sign In</h2>
+  <h2>Sign in</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in" %>
+      <%= f.button :submit, "Sign in", class: "btn-primary" %>
     </div>
   <% end %>
 
