@@ -2,49 +2,59 @@
   <a class="navbar-brand" href="/">
     <img src="/assets/wizard-3.png" width="30" height="30" class="d-inline-block align-top" alt="">
   </a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-
-      <li class="nav-item">
-        <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link'  %>
+        <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>
       </li>
 
       <li>
-        <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+        <% if current_user %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  User
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete', class: 'nav-link' %>
+                  <%= link_to 'Edit User Profile', edit_user_registration_path, class: 'nav-link' %>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Subjects
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/subject">Subject</a>
+                <a class="dropdown-item" href="/another_subject">Another subject</a>
+                <a class="dropdown-item" href="/another_another_subject">Another another subject</a>
+              </div>
+            </li>
+
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+        <% else %>
+            <li class="nav-item">
+                <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link'  %>
+            </li>
+
+            <li class="nav-item">
+                <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+            </li>
+        <% end %>
       </li>
 
-      <li>
-        <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete', class: 'nav-link' %>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/action"onkeyup="">Action</a>
-          <a class="dropdown-item" href="/another_action">Another action</a>
-          <a class="dropdown-item" href="/another_another_action">Another another action</a>
-
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
   </div>
 </nav>
