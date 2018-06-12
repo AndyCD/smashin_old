@@ -15,3 +15,34 @@ User.create! :name => 'Andreea', :email => 'andreea.c.damian@gmail.com', :passwo
 User.create! :name => 'Liviu',   :email => 'liviu.damian@rogers.com',    :password => 'topsecret', :password_confirmation => 'topsecret', :confirmation_token => 'KRvf5RyyyPVJWPdZGpWo', :confirmed_at => DateTime.now, :confirmation_sent_at => DateTime.now, :role => :admin
 User.create! :name => 'Levi',    :email => 'levi.l.damian@gmail.com',    :password => 'topsecret', :password_confirmation => 'topsecret', :confirmation_token => 'KRvf5RyyyPVJWPdZGpWo', :confirmed_at => DateTime.now, :confirmation_sent_at => DateTime.now, :role => :admin
 User.create! :name => 'L.D.',    :email => 'l_damian@gmail.com',         :password => 'topsecret', :password_confirmation => 'topsecret', :confirmation_token => 'KRvf5RyyyPVJWPdZGpWo', :confirmed_at => DateTime.now, :confirmation_sent_at => DateTime.now, :role => :admin
+
+roles = [:student, :guardian, :teacher, :admin]
+
+role_ids = []
+roles.each do |id, role|
+  role_ids << id
+end
+
+roles_count = role_ids.length
+p "#{roles_count} roles"
+
+number_of_users = 200
+users = []
+
+number_of_users.times do |i|
+  new_user = {
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: 'topsecret',
+    password_confirmation: 'topsecret',
+    confirmed_at: DateTime.now,
+    confirmation_sent_at: DateTime.now,
+    #group_id: group_ids[Random.rand(0...group_count)]
+    role: role_ids[Random.rand(0...roles_count)]
+  }
+  users << new_user
+end
+
+User.create(users)
+
+p "#{number_of_users} new users created"

@@ -1,0 +1,23 @@
+<h1>Users</h1>
+<h4>
+  All: <%= @users_count %>
+  <% @users_by_roles.each do |role, count| %>
+    <%= role.nil? ? 'None' : role.to_s.capitalize + "s" %> : <%= count %>
+  <% end %>
+</h4>
+
+<% if @users.blank? %>
+  <div class="alert alert-warning">
+    <strong>Records not found</strong>
+  </div>
+<% end %>
+
+<div class="text-center">
+  <%= paginate @users %>
+</div>
+
+<div class="panel panel-default">
+  <table class="table">
+    <%= render @users %>
+  </table>
+</div>

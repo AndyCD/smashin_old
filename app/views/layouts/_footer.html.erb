@@ -1,10 +1,12 @@
 <footer>
     <div class="row-fluid">
-        <%= "Smashin Academy for learning English"%>
+        <%= "Smashin Academy for Learning English"%>
         <% if user_signed_in? %>
           Signed in as <strong><%= current_user.email %></strong>
             <% if current_user.try(:admin?) %>
                 Account Type: <strong>Admin</strong>
+            <% else %>
+                Account Type: <strong><%= current_user.role %></strong>
             <% end %>
         <% else %>
           Not Signed in

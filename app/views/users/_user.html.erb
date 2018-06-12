@@ -1,0 +1,52 @@
+<tr>
+  <td class="middle">
+    <div class="media">
+      <div class="media-left">
+        <a href="#">
+          <%= image_tag user.gravatar, class: "media-object" %>
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%= user.name %></h4>
+
+        <div class="row">
+          <div class="col-6">
+            Email: <strong><%= user.email %></strong>
+          </div>
+          <div class="col-6">
+            Role: <strong><%= user.role %></strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            Created At: <strong><%= user.created_at %></strong>
+          </div>
+          <div class="col-6">
+            Updated At: <strong><%= user.updated_at %></strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            Confirmed At: <strong><%= user.confirmed_at %></strong>
+          </div>
+          <div class="col-6">
+            Last Signed In At: <strong><%= user.last_sign_in_at %></strong>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </td>
+
+  <td width="100" class="middle">
+    <div class="media">
+      <div class="media-right">
+        <%= link_to '<i class="fa fa-info" style="font-size:18px;color:white;"></i>'.html_safe, user, method: "get", class: "btn btn-circle btn-success btn-xs" %>
+        <%= link_to '<i class="fa fa-pencil-square-o" style="font-size:18px;color:white"></i>'.html_safe, edit_user_path(user), method: "get", class: "btn btn-circle btn-info btn-xs" %>
+        <%= link_to '<i class="fa fa-remove" style="font-size:18px;color:white"></i>'.html_safe, user, class: "btn btn-circle btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  </td>
+</tr>

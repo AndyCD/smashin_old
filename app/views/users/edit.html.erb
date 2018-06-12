@@ -1,0 +1,28 @@
+<h1>Edit User</h1>
+
+<%= render 'show' %>
+
+<%= simple_form_for(@user) do |f| %>
+  <div class="form-inputs">
+    <%= f.label :role, required: true, label: "User role:" %>
+    <%= f.select(:role, [['Student', 'student'], ['Guardian', 'guardian'], ['Teacher', 'teacher'], ['Admin', 'admin']]) %><br />
+  </div>
+
+  <br />
+
+  <div class="form-actions">
+    <%= f.button :submit, "Update", class: "btn-primary" %>
+  </div>
+
+<% end %>
+
+<br />
+
+<div class="row-fluid">
+  <%= link_to '<i class="fa fa-info" style="font-size:18px;color:white;"></i>'.html_safe, @user, method: "get", class: "btn btn-circle btn-success btn-xs" %>
+  <%= link_to '<i class="fa fa-list" style="font-size:18px;color:white;"></i>'.html_safe, users_path, method: "get", class: "btn btn-circle btn-success btn-xs" %>
+  <%= link_to '<i class="fa fa-remove" style="font-size:18px;color:white"></i>'.html_safe, @user, class: "btn btn-circle btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% if @user.deleted_at %>
+    <p>Reactivate User? <%= link_to "Reactivate", reactivate_user_path(@user),  method: "patch", class: "btn-outline-danger" %></p>
+  <% end %>
+</div>

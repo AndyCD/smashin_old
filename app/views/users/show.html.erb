@@ -1,0 +1,9 @@
+<h1>Show User <%= @user.name %></h1>
+
+<%= render 'show' %>
+
+<div>
+ <%= link_to '<i class="fa fa-list" style="font-size:18px;color:white;"></i>'.html_safe, users_path, method: "get", class: "btn btn-circle btn-success btn-xs" %>
+ <%= link_to '<i class="fa fa-pencil-square-o" style="font-size:18px;color:white"></i>'.html_safe, edit_user_path(@user), method: "get", class: "btn btn-circle btn-info btn-xs" %>
+ <%= link_to '<i class="fa fa-remove" style="font-size:18px;color:white"></i>'.html_safe, @user, class: "btn btn-circle btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
