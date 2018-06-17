@@ -30,16 +30,28 @@ number_of_users = 200
 users = []
 
 number_of_users.times do |i|
-  new_user = {
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: 'topsecret',
-    password_confirmation: 'topsecret',
-    confirmed_at: DateTime.now,
-    confirmation_sent_at: DateTime.now,
-    #group_id: group_ids[Random.rand(0...group_count)]
-    role: role_ids[Random.rand(0...roles_count)]
-  }
+  if i % 13 == 0
+    new_user = {
+      name: Faker::Name.name,
+      email: Faker::Internet.email,
+      password: 'topsecret',
+      password_confirmation: 'topsecret',
+      confirmed_at: DateTime.now,
+      confirmation_sent_at: DateTime.now,
+      role: role_ids[Random.rand(0...roles_count)],
+      deleted_at: DateTime.now
+    }
+  else
+    new_user = {
+      name: Faker::Name.name,
+      email: Faker::Internet.email,
+      password: 'topsecret',
+      password_confirmation: 'topsecret',
+      confirmed_at: DateTime.now,
+      confirmation_sent_at: DateTime.now,
+      role: role_ids[Random.rand(0...roles_count)]
+    }
+  end
   users << new_user
 end
 

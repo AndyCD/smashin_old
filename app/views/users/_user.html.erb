@@ -1,13 +1,17 @@
 <tr>
-  <td class="middle">
+  <td width="100" class="middle">
     <div class="media">
       <div class="media-left">
-        <a href="#">
           <%= image_tag user.gravatar, class: "media-object" %>
-        </a>
+          <h6 class="text-center">ID: <%= user.id %></h6>
       </div>
+
       <div class="media-body">
-        <h4 class="media-heading"><%= user.name %></h4>
+        <% if user.deleted_at %>
+          <del><h4 class="media-heading"><%= user.name %></h4></del>
+        <% else %>
+          <h4 class="media-heading"><%= user.name %></h4>
+        <% end %>
 
         <div class="row">
           <div class="col-6">

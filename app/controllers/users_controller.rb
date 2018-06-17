@@ -4,8 +4,23 @@ class UsersController < ApplicationController
   def index
     @users_count = User.count
     @users_by_roles = User.group(:role).order(:role).count
-    @users = User.page(params[:page]).order(id: :desc)
-  end
+    @deleted_users_count = User.where.not(deleted_at: nil).count
+
+    if params[:term] && !params[:term].empty?
+      @users = User.where("name like :search or email like :search", search: "%#{params[:term]}%").order(id: :desc).page(params[:page])
+    else
+      if params[:deleted_at]
+        @users = User.where.not(deleted_at: nil).order(id: :desc).page(params[:page])
+      else
+        if params[:role] && !params[:role].empty?
+          @users = User.where(role: params[:role]).order(id: :desc).page(params[:page])
+        else
+          @users = User.order(id: :desc).page(params[:page])
+        end
+      end
+    end
+
+end
 
   def show
     @user = User.find(params[:id])
