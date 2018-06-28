@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :edit, :update, :destroy]
 
-    patch 'users/:id/update', to: 'users#reactivate_user', as: 'reactivate_user'
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  patch 'users/:id/update', to: 'users#reactivate_user', as: 'reactivate_user'
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

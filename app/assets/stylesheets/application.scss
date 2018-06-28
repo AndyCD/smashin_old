@@ -26,11 +26,35 @@
  }
 
  body {
-   height: 100%;
+   //height: 100%;
+   margin-right: -15px;
+   margin-left:  -15px;
+   background-size: 100% 100%;
+   background-repeat: no-repeat;
+   height: 100vh;
+ }
+
+ body.homepage {
+   background: asset-url('Background-1.jpg');
+   background-size: 100% 100%;
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+ body.aboutpage {
+   background: asset-url('Background-2.jpg');
+   background-size: 100% 100%;
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
  }
 
  #wrap {
    min-height: 100%;
+   width:  100%;
  }
 
  #main {
@@ -46,10 +70,10 @@
    position: relative;
    margin-top: -20px; //negative value of footer height
    height: 20px;
-   margin-left: 5px;
-   margin-right: 5px;
+   margin-left:  15px;
+   margin-right: 15px;
    clear:both;
-   padding: 0px;
+   //padding: 0px;
    border-top: 1px solid lightgrey;
    color: inherit;
    text-align: left;
@@ -57,6 +81,10 @@
    background-color: #F5F5F5;
  }
 /* general - end */
+
+.container.home {
+  background-image: url('/assets/Background-1.jpg');
+}
 
 .table tbody>tr>td.middle {
     vertical-align: middle;

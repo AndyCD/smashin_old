@@ -3,7 +3,10 @@
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="/assets/wizard-3.png" type="image/x-icon" />
     <title>Smashin</title>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -15,7 +18,12 @@
 
   </head>
 
-  <body>
+  <body class="body
+              <%= case @current_page
+                  when 'homepage' then 'homepage'
+                  when 'aboutpage' then 'aboutpage'
+                  else ''
+              end %> " >
     <div id="wrap">
       <%= render 'layouts/navigation' %>
 

@@ -2,19 +2,21 @@
 
 <%= render 'show' %>
 
-<%= simple_form_for(@user) do |f| %>
-  <div class="form-inputs">
-    <%= f.label :role, required: true, label: "User role:" %>
-    <%= f.select(:role, [['Student', 'student'], ['Guardian', 'guardian'], ['Teacher', 'teacher'], ['Admin', 'admin']]) %><br />
-  </div>
+<div class="container-fluid">
+  <%= simple_form_for(@user) do |f| %>
+    <div class="form-inputs">
+      <%= f.label :role, required: true, label: "User role:" %>
+      <%= f.select(:role, [['Student', 'student'], ['Guardian', 'guardian'], ['Teacher', 'teacher'], ['Admin', 'admin']]) %><br />
+    </div>
 
-  <br />
+    <br />
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update", class: "btn-primary" %>
-  </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Update", class: "btn-primary" %>
+    </div>
 
-<% end %>
+  <% end %>
+</div>
 
 <br />
 
